@@ -11,14 +11,11 @@ import androidx.recyclerview.widget.RecyclerView
 data class CoffeShopItem(
     val title: String,
     val imgItem: Int,
-    val barRating: Float,
     val address: String
 )
 
 class RecAdapter(var items: ArrayList<CoffeShopItem>) :
     RecyclerView.Adapter<RecAdapter.ViewHolder>() {
-
-    lateinit var onClick: (View) -> Unit
 
     class ViewHolder(itemView: View) :
         RecyclerView.ViewHolder(itemView) {
@@ -27,13 +24,16 @@ class RecAdapter(var items: ArrayList<CoffeShopItem>) :
         var title: TextView = itemView.findViewById(R.id.coffeShopName)
         var address: TextView = itemView.findViewById(R.id.coffeShopName2)
         val ratingBar: RatingBar = itemView.findViewById(R.id.ratingBar)
+        val points: TextView = itemView.findViewById(R.id.textView)
 
-        fun bindItem(t: CoffeShopItem, onClick: (View) -> Unit) = with(itemView) {
+        fun bindItem(t: CoffeShopItem) = with(itemView) {
             shopImg.setImageResource(t.imgItem)
             title.text = t.title
             address.text = t.address
-            ratingBar.rating = t.barRating
-
+            ratingBar.onRatingBarChangeListener =
+                RatingBar.OnRatingBarChangeListener { ratingBar, rating, fromUser ->
+                    points.text = rating.toString()
+                }
         }
 
     }
@@ -46,7 +46,7 @@ class RecAdapter(var items: ArrayList<CoffeShopItem>) :
 
     override fun onBindViewHolder(viewHolder: ViewHolder, pos: Int) {
         val itemCard = items[pos]
-        viewHolder.bindItem(itemCard, onClick)
+        viewHolder.bindItem(itemCard)
     }
 
     override fun getItemCount(): Int {

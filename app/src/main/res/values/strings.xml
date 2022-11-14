@@ -3,4 +3,5 @@
     <string name="current_coffe_shop_image">Current coffe shop image</string>
     <string name="reserve">Reserve</string>
     <string name="coffeshopname">CoffeShopName</string>
+    <string name="coffeShopRatingBar" />
 </resources>

@@ -19,12 +19,23 @@
         android:layout_width="match_parent"
         android:layout_height="521dp">
 
+        <ImageView
+            android:id="@+id/coffeShopImg"
+            android:layout_width="match_parent"
+            android:layout_height="279dp"
+            android:contentDescription="@string/current_coffe_shop_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
         <TextView
             android:id="@+id/coffeShopName2"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_gravity="fill_vertical"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="16dp"
             android:contentDescription="CoffeShopName"
             android:text="placeholder2"
             android:textSize="20sp"
@@ -32,26 +43,12 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ratingBar" />
 
-        <ImageView
-            android:id="@+id/coffeShopImg"
-            android:layout_width="match_parent"
-            android:layout_height="279dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:contentDescription="@string/current_coffe_shop_image"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@tools:sample/backgrounds/scenic" />
-
         <TextView
             android:id="@+id/coffeShopName"
             android:layout_width="250dp"
             android:layout_height="50dp"
             android:layout_gravity="fill_vertical"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="16dp"
             android:contentDescription="@string/coffeshopname"
             android:text="placeholder"
             android:textSize="34sp"
@@ -61,10 +58,16 @@
 
         <RatingBar
             android:id="@+id/ratingBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            style="@android:style/Widget.DeviceDefault.RatingBar"
+            android:layout_width="0dp"
+            android:layout_height="59dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="140dp"
+            android:contentDescription="ratingbarlabel"
+            android:max="5"
             android:numStars="5"
+            android:progressTint="@color/secondaryColor"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/coffeShopName" />
 
@@ -91,6 +94,17 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.093"
+            app:layout_constraintStart_toEndOf="@+id/ratingBar"
+            app:layout_constraintTop_toBottomOf="@+id/coffeShopName" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
